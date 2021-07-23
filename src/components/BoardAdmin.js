@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import UserService from "../services/user.service";
+import EventBus from "../common/EventBus";
 
 const BoardAdmin = () => {
   const [content, setContent] = useState("");
@@ -19,6 +20,10 @@ const BoardAdmin = () => {
           error.toString();
 
         setContent(_content);
+
+        if (error.response && error.response.status === 401) {
+          EventBus.dispatch("logout");
+        }
       }
     );
   }, []);
