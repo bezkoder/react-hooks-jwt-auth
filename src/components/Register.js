@@ -46,7 +46,7 @@ const vpassword = (value) => {
   }
 };
 
-const Register = (props) => {
+const Register = () => {
   const form = useRef();
   const checkBtn = useRef();
 
